@@ -1,3 +1,4 @@
+
 <script type="text/javascript"
         src="https://www.google.com/jsapi?autoload={
             'modules':[{
@@ -145,22 +146,34 @@
 
 </script>
 
-<h2 class="text-center">Delivery-1 Server</h2>
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    Year 
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">2014</a></li>
+    <li><a href="#">2015</a></li>
+  </ul>
+</div>
+<div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    Moth
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">01</a></li>
+    <li><a href="#">02</a></li>
+  </ul>
+</div>
+
+<h1 class="text-center">Concurrencia</h1>
+
 <div class="row">
   <div class="col-md-6">
     <div id="delivery_cpu_chart" style="width: 900px; height: 500px"></div>
   </div>
   <div class="col-md-6">
     <div id="delivery_ram_chart" style="width: 900px; height: 500px"></div>
-  </div>
-</div>
-
-<h2 class="text-center">Encoder-1 Server</h2>
-<div class="row">
-  <div class="col-md-6">
-    <div id="encoder_cpu_chart" style="width: 900px; height: 500px"></div>
-  </div>
-  <div class="col-md-6">
-    <div id="encoder_ram_chart" style="width: 900px; height: 500px"></div>
   </div>
 </div>

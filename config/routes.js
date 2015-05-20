@@ -35,7 +35,10 @@ module.exports.routes = {
 
   'GET /': 'PageController.showHomePage',
 
-  'GET /stats': 'PageController.showStats',
+  'GET /bitrates': 'PageController.bitrates',
+
+  'GET /concurrence': 'PageController.concurrence',
+
   ////////////////////////////////////////////////////////////
   // JSON API
   ////////////////////////////////////////////////////////////

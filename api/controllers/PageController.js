@@ -26,7 +26,7 @@ module.exports = {
         return res.view('login', {layout:'layout_login' });
       }
 
-      return res.view('statistics', {
+      return res.view('bitrates', {
         me: {
           id: user.id,
           email: user.email,
@@ -35,5 +35,14 @@ module.exports = {
       });
 
     });
+  },
+
+  bitrates: function (req, res) {
+    return res.view ('bitrates');
+  },
+
+  concurrence: function (req, res) {
+    return res.view ('concurrence');
   }
+
 };
