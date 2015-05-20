@@ -1,0 +1,18 @@
+<div class="container" ng-app="LoginModule" ng-controller="LoginController" ng-cloak>
+
+    <form ng-submit="submitLoginForm()" class="form-login">
+        <h2 class="form-login-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input ng-model="loginForm.email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input ng-model="loginForm.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <br>
+        <button type="submit" class="btn btn-primary btn-block">
+            <span ng-show="!loginForm.loading">Sign in</span>
+            <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
+            <span ng-show="loginForm.loading">Signing in...</span>
+        </button>
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+    </form>
+
+</div> <!-- /container -->
