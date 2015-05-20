@@ -70,7 +70,7 @@ module.exports = {
                 User.create({
                     email: req.param('email'),
                     encryptedPassword: encryptedPassword,
-                    lastLoggedIn: new Date()
+                    company: req.param('company')
                 }, function userCreated(err, newUser) {
                     if (err) {
 
