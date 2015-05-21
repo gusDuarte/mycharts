@@ -6,144 +6,9 @@
               'packages':['corechart']
             }]
           }"></script>
-
-<script type="text/javascript">
-  google.setOnLoadCallback(drawDeliveryCpuChart);
-  google.setOnLoadCallback(drawDeliveryRamChart);
-  google.setOnLoadCallback(drawEncoderCpuChart);
-  google.setOnLoadCallback(drawEncoderRamChart);
-
-  function drawDeliveryCpuChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Time', '% CPU'],
-      ['5',  26],
-      ['10',  25],
-      ['15',  22],
-      ['20',  27],
-      ['25',  29],
-      ['30',  30],
-      ['35',  25],
-      ['40',  28],
-      ['45',  27],
-      ['50',  33],
-      ['55',  32],
-      ['60',  34]
-    ]);
-
-    var options = {
-      title: 'CPU Usage',
-      curveType: 'none',
-      legend: { position: 'bottom' },
-      "vAxis":{
-        "title": "%"
-      },
-      "hAxis":{
-        "title": "Latest 60 mins"
-      }
-    };
-    var chart = new google.visualization.LineChart(document.getElementById('delivery_cpu_chart'));
-    chart.draw(data, options);
-  }
-
-  function drawDeliveryRamChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Time', '% RAM'],
-      ['5',  36],
-      ['10',  33],
-      ['15',  28],
-      ['20',  27],
-      ['25',  29],
-      ['30',  30],
-      ['35',  25],
-      ['40',  28],
-      ['45',  30],
-      ['50',  31],
-      ['55',  28],
-      ['60',  33]
-    ]);
-
-    var options = {
-      title: 'RAM Usage',
-      curveType: 'none',
-      legend: { position: 'bottom' },
-      vAxis:{
-        "title": "%"
-      },
-      hAxis:{
-        "title": "Latest 60 mins"
-      },
-      colors:['red','#004411']
-    };
-    var chart = new google.visualization.LineChart(document.getElementById('delivery_ram_chart'));
-    chart.draw(data, options);
-  }
-
-  function drawEncoderCpuChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Time', '% CPU'],
-      ['5',  21],
-      ['10', 20],
-      ['15', 18],
-      ['20', 19],
-      ['25', 15],
-      ['30', 12],
-      ['35', 16],
-      ['40', 17],
-      ['45', 20],
-      ['50', 18],
-      ['55', 25],
-      ['60', 27]
-    ]);
-
-    var options = {
-      title: 'CPU Usage',
-      curveType: 'none',
-      legend: { position: 'bottom' },
-      "vAxis":{
-        "title": "%"
-      },
-      "hAxis":{
-        "title": "Latest 60 mins"
-      }
-    };
-    var chart = new google.visualization.LineChart(document.getElementById('encoder_cpu_chart'));
-    chart.draw(data, options);
-  }
-
-  function drawEncoderRamChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Time', '% RAM'],
-      ['5',  33],
-      ['10', 32],
-      ['15', 37],
-      ['20', 36],
-      ['25', 35],
-      ['30', 34],
-      ['35', 33],
-      ['40', 28],
-      ['45', 29],
-      ['50', 26],
-      ['55', 25],
-      ['60', 27]
-    ]);
-
-    var options = {
-      title: 'RAM Usage',
-      curveType: 'none',
-      legend: { position: 'bottom' },
-      vAxis:{
-        "title": "%"
-      },
-      hAxis:{
-        "title": "Latest 60 mins"
-      },
-      colors:['red','#004411']
-    };
-    var chart = new google.visualization.LineChart(document.getElementById('encoder_ram_chart'));
-    chart.draw(data, options);
-  }
-
-</script>
+          
+<script type="text/javascript" src="utils.js"></script>          
+<script type="text/javascript" src="bitrates_chart.js"></script>
 
 
 
@@ -172,10 +37,5 @@
 <h1 class="text-center">BitRates</h1>
 
 <div class="row">
-  <div class="col-md-6">
-    <div id="delivery_cpu_chart" style="width: 900px; height: 500px"></div>
-  </div>
-  <div class="col-md-6">
-    <div id="delivery_ram_chart" style="width: 900px; height: 500px"></div>
-  </div>
+    <div id="bitrates_chart" style="width: 1200px; height: 900px"></div>
 </div>
