@@ -1,4 +1,7 @@
-function CSVToArray( strData, strDelimiter ){
+
+
+    function CSVToArray (strData, strDelimiter)
+    {
         // Check to see if the delimiter is defined. If not,
         // then default to comma.
         strDelimiter = (strDelimiter || ",");
@@ -7,16 +10,16 @@ function CSVToArray( strData, strDelimiter ){
         var objPattern = new RegExp(
             (
                 // Delimiters.
-                "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+            "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
 
                 // Quoted fields.
-                "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+            "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
 
                 // Standard fields.
-                "([^\"\\" + strDelimiter + "\\r\\n]*))"
+            "([^\"\\" + strDelimiter + "\\r\\n]*))"
             ),
             "gi"
-            );
+        );
 
 
         // Create an array to hold our data. Give the array
@@ -30,10 +33,10 @@ function CSVToArray( strData, strDelimiter ){
 
         // Keep looping over the regular expression matches
         // until we can no longer find a match.
-        while (arrMatches = objPattern.exec( strData )){
+        while (arrMatches = objPattern.exec(strData)) {
 
             // Get the delimiter that was found.
-            var strMatchedDelimiter = arrMatches[ 1 ];
+            var strMatchedDelimiter = arrMatches[1];
 
             // Check to see if the given delimiter has a length
             // (is not the start of string) and if it matches
@@ -42,11 +45,11 @@ function CSVToArray( strData, strDelimiter ){
             if (
                 strMatchedDelimiter.length &&
                 (strMatchedDelimiter != strDelimiter)
-                ){
+            ) {
 
                 // Since we have reached a new row of data,
                 // add an empty row to our data array.
-                arrData.push( [] );
+                arrData.push([]);
 
             }
 
@@ -54,29 +57,29 @@ function CSVToArray( strData, strDelimiter ){
             // Now that we have our delimiter out of the way,
             // let's check to see which kind of value we
             // captured (quoted or unquoted).
-            if (arrMatches[ 2 ]){
+            if (arrMatches[2]) {
 
                 // We found a quoted value. When we capture
                 // this value, unescape any double quotes.
-                var strMatchedValue = arrMatches[ 2 ].replace(
-                    new RegExp( "\"\"", "g" ),
+                var strMatchedValue = arrMatches[2].replace(
+                    new RegExp("\"\"", "g"),
                     "\""
-                    );
+                );
 
             } else {
 
                 // We found a non-quoted value.
-                var strMatchedValue = arrMatches[ 3 ];
+                var strMatchedValue = arrMatches[3];
 
             }
 
 
             // Now that we have our value string, let's add
             // it to the data array.
-            arrData[ arrData.length - 1 ].push( strMatchedValue );
+            arrData[arrData.length - 1].push(strMatchedValue);
         }
 
         // Return the parsed data.
-        return( arrData );
-}
+        return ( arrData );
+    }
 

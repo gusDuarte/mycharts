@@ -6,31 +6,39 @@
               'packages':['corechart']
             }]
           }"></script>
-<script type="text/javascript" src="stats_chart.js"></script>
+          
+<script type="text/javascript" src="utils.js"></script>          
+<script type="text/javascript" src="concurrence_chart.js"></script>
 
+
+<div class="container" ng-app="ConcurrenceModule" ng-controller="ConcurrenceController" ng-cloak>
 
 <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-    Year 
+    <span ng-hide="yearChoose">Año</span>
+    <span ng-show="yearChoose">{{yearChoose}}</span> 
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="#">2014</a></li>
-    <li><a href="#">2015</a></li>
+    <li ng-repeat="year in years" ><a ng-click="choiceYear(year)" href="#">{{year}}</a></li>
   </ul>
 </div>
 <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-    Moth
+    <span ng-hide="yearChoose">Mes</span>
+    <span ng-show="yearChoose">{{monthChoose}}</span> 
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu">
-    <li><a href="#">01</a></li>
-    <li><a href="#">02</a></li>
+    <li ng-repeat="month in months" ><a ng-click="choiceMonth(month)" href="#">{{month}}</a></li>
   </ul>
 </div>
 
-<h1 class="text-center">Concurrencia</h1>
-<div class="center-block">
+
+<h1 class="text-center">Usuarios Concurrentes</h1>
+
+<div class="row">
     <div id="concurrence_chart" style="width: 1200px; height: 900px"></div>
 </div>
+
+</div> <!-- container -->

@@ -101,7 +101,6 @@ npm-debug.log
 
 
 
-
 ################################################
 # Miscellaneous
 #
@@ -116,3 +115,6 @@ npm-debug.log
 nbproject
 .idea
 .node_history
+
+
+assets/data/*/*/*/*.csv

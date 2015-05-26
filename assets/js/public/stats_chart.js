@@ -1,6 +1,4 @@
-
-  google.setOnLoadCallback(drawConcurrenceChart);
-  
+ 
   function drawConcurrenceChart() {
     var data = google.visualization.arrayToDataTable([
       ['Time', '% CPU'],
