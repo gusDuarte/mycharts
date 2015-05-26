@@ -5,7 +5,7 @@
 var bitrateColumnChart = {
     chart: {
         type: "ColumnChart",
-        cssStyle: "height:800px; widht:1500px;",
+        cssStyle: "height:600px; widht:1500px;",
         options: {
             legend: {position: 'top', maxLines: 3},
             isStacked: "true",
@@ -25,14 +25,14 @@ var bitrateColumnChart = {
     },
     data_adapter: function (csvData){
         var data = {'cols': [], 'rows': []};
-        data.cols = create_columns();
-        data.rows = create_rows(csvData);
+        data.cols = bt_create_columns();
+        data.rows = bt_create_rows(csvData);
         return data;
     }
 }
 
 
-var create_columns = function (){
+var bt_create_columns = function (){
     var data = [];
     data.push(  {id:"100k", label:"100k", type:"number"},
         {id:"300k", label:"300k", type:"number"},
@@ -47,7 +47,7 @@ var create_columns = function (){
 }
 
 
-var create_rows = function (csvData){
+var bt_create_rows = function (csvData){
     var data = [];
     var row = [8];
     var csvArray = CSVToArray(csvData,',');
@@ -58,7 +58,7 @@ var create_rows = function (csvData){
         data[day].c.push({v: day.toString()});
 
         for (var c=0; c<8; c++){
-            row[c]= getValue(csvArray, day, c);
+            row[c]= bt_getValue(csvArray, day, c);
         }
 
         for (var c=0; c<8; c++){
@@ -70,7 +70,7 @@ var create_rows = function (csvData){
     return data;
 }
 
-var getValue = function (data, day, bitrate){
+var bt_getValue = function (data, day, bitrate){
     console.log("Day: " + day + " Bitrate: " + bitrate + " value: " +  data[day][bitrate] );
     return data[day][bitrate];
 }

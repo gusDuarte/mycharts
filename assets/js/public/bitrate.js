@@ -2,9 +2,8 @@ angular.module('BitrateModule',[]);
 angular.module('BitrateModule', ['googlechart']).controller('BitrateController', ['$scope', '$http', function($scope, $http){
 	$scope.monthChoose = 0;
 	$scope.yearChoose = false;
-    $scope.csvData = false;
-
-    $scope.chart = bitrateColumnChart.chart;
+  
+    $scope.chartBitrate = bitrateColumnChart.chart;
 
 
 
@@ -46,12 +45,11 @@ angular.module('BitrateModule', ['googlechart']).controller('BitrateController',
       	$http.get('/bitrate/data?'+'year='+ $scope.yearChoose + '&month=' + $scope.monthChoose).
       		success(function(data, status, headers, config) {
       		console.log("CSV: "+data);	
-        	$scope.chart.data = bitrateColumnChart.data_adapter(data);
+        	$scope.chartBitrate.data = bitrateColumnChart.data_adapter(data);
       	}).
       	error(function(data, status, headers, config) {
         	// called asynchronously if an error occurs
         	// or server returns response with an error status.
-        	$scope.csvData = '';
         	console.log("CSV error: "+data);
       	})
       }

@@ -1,8 +1,9 @@
 angular.module('ConcurrenceModule', []);
-angular.module('ConcurrenceModule').controller('ConcurrenceController', ['$scope', '$http', function($scope, $http){
-$scope.monthChoose = 0;
-	$scope.yearChoose = false;
-	$scope.csvData = false;
+angular.module('ConcurrenceModule',['googlechart']).controller('ConcurrenceController', ['$scope', '$http', function($scope, $http){
+  $scope.monthChoose = 0;
+  $scope.yearChoose = false;
+  
+  $scope.chartConcurrence = concurrenceBubbleChart.chart;
 
 	$http.get('/concurrence/years').
       success(function(data, status, headers, config) {
@@ -42,7 +43,7 @@ $scope.monthChoose = 0;
       	$http.get('/concurrence/data?'+'year='+ $scope.yearChoose + '&month=' + $scope.monthChoose).
       		success(function(data, status, headers, config) {
       		console.log("CSV: "+data);	
-        	$scope.csvData = data;
+        	$scope.chartConcurrence.data = concurrenceBubbleChart.data_adapter(data);
       	}).
       	error(function(data, status, headers, config) {
         	// called asynchronously if an error occurs
