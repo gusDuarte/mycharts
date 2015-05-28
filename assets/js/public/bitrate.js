@@ -19,20 +19,21 @@ angular.module('BitrateModule', ['googlechart']).controller('BitrateController',
         $scope.years = '';
       })
 
-      $scope.choiceMonth = function(month){
-      	console.log("Month choose: " + month);
-      	$scope.monthChoose = month;
-      	if ($scope.yearChoose){
-      		getData();
-      	}
+    $scope.choiceMonth = function(month){
+        console.log("Month choose: " + month);
+        $scope.monthChoose = month;
+        if ($scope.yearChoose){
+            getData();
+        }
       }
 
-      $scope.choiceYear = function(year){
+    $scope.choiceYear = function(year){
       	console.log("Year choose: " + year);
       	$scope.yearChoose = year;
       	$http.get('/bitrate/months?year=' + $scope.yearChoose).
       		success(function(data, status, headers, config) {
-        	$scope.months = data;
+        	    $scope.months = data;
+                $scope.monthChoose = data[0];
       	}).
       	error(function(data, status, headers, config) {
         	// called asynchronously if an error occurs
@@ -41,7 +42,7 @@ angular.module('BitrateModule', ['googlechart']).controller('BitrateController',
       	})
       }
 
-      getData = function(){
+    getData = function(){
       	$http.get('/bitrate/data?'+'year='+ $scope.yearChoose + '&month=' + $scope.monthChoose).
       		success(function(data, status, headers, config) {
       			console.log("CSV: "+data);

@@ -31,7 +31,8 @@ angular.module('ConcurrenceModule',['googlechart']).controller('ConcurrenceContr
       	$scope.yearChoose = year;
       	$http.get('/concurrence/months?year=' + $scope.yearChoose).
       		success(function(data, status, headers, config) {
-        	$scope.months = data;
+        	    $scope.months = data;
+                $scope.monthChoose = data[0];
       	}).
       	error(function(data, status, headers, config) {
         	// called asynchronously if an error occurs
