@@ -15,5 +15,15 @@ module.exports = {
 	getData: function (customer, chartType, year, month, cb){
 		var fs = require('fs');
 		fs.readFile('./assets/data/'+customer+'/'+chartType+'/'+year+'/'+month+'/'+chartType+'.'+year+'.'+month+'.csv', cb);
+	},
+
+	get_customer_folder: function (company){
+		if (company == 'Nuevosiglo'){
+			return 'NS';
+		}
+		if (company == 'Montecable'){
+			return 'MC';
+		}
+		return 'MC';
 	}
 }

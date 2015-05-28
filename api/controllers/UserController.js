@@ -39,6 +39,7 @@ module.exports = {
                 success: function (){
 
                     // Store user id in the user session
+                    req.session.company = user.company;
                     req.session.me = user.id;
                     req.session.authenticated = true;
                     // All done- let the client know that everything worked.

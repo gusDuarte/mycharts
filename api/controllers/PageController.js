@@ -27,22 +27,16 @@ module.exports = {
       }
 
       return res.view('bitrates', {
-        me: {
-          id: user.id,
-          email: user.email,
-          isAdmin: !!user.admin
-        }
+        customer: req.session.company
       });
 
     });
   },
 
   bitrates: function (req, res) {
-    return res.view ('bitrates');
+    return res.view ('bitrates', {customer: req.session.company});
   },
-
   concurrence: function (req, res) {
-    return res.view ('concurrence');
+    return res.view ('concurrence', {customer: req.session.company});
   }
-
 };

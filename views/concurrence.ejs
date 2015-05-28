@@ -1,29 +1,33 @@
-<div class="container" ng-app="ConcurrenceModule" ng-controller="ConcurrenceController" ng-cloak>
-
-<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-    <span ng-hide="yearChoose">Año</span>
-    <span ng-show="yearChoose">{{yearChoose}}</span> 
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li ng-repeat="year in years" ><a ng-click="choiceYear(year)" href="#">{{year}}</a></li>
-  </ul>
-</div>
-
-  <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-    <span ng-hide="yearChoose">Mes</span>
-    <span ng-show="yearChoose">{{monthChoose}}</span> 
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li ng-repeat="month in months" ><a ng-click="choiceMonth(month)" href="#">{{month}}</a></li>
-  </ul>
-  </div>
 
 
-  <h1 class="text-center">Usuarios Concurrentes</h1>
-  <div google-chart chart="chartConcurrence" style="{{chartConcurrence.cssStyle}}"></div>
+<div class="container"  ng-app="ConcurrenceModule" ng-controller="ConcurrenceController" ng-cloak>
+    <div class="chart-title">
+        <span > <%= customer %> - Concurrencia </span>
+    </div>
 
+    <div class="container-chart-buttons">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span ng-hide="yearChoose">Año</span>
+            <span ng-show="yearChoose">{{yearChoose}}</span>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li ng-repeat="year in years" ><a ng-click="choiceYear(year)" href="#">{{year}}</a></li>
+          </ul>
+        </div>
+
+          <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <span ng-hide="yearChoose">Mes</span>
+            <span ng-show="yearChoose">{{monthChoose}}</span>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li ng-repeat="month in months" ><a ng-click="choiceMonth(month)" href="#">{{month}}</a></li>
+          </ul>
+          </div>
+
+          <div ng-show="chart_loaded" class="container-chart" google-chart chart="chartConcurrence" style="{{chartConcurrence.cssStyle}}"></div>
+    </div>
 </div> <!-- container -->

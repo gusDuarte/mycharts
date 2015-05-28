@@ -5,8 +5,10 @@
 var concurrenceBubbleChart = {
     chart: {
         type: "BubbleChart",
-        cssStyle: "height:800px; widht:1400px;",
+        cssStyle: "height:700px; width: 1200px;",
+
         options: {
+            chartArea: {left:50,top:60,width:'100%',height:'80%'},
             vAxis: {
                 title: 'Hora',
                 viewWindow: {
@@ -14,18 +16,20 @@ var concurrenceBubbleChart = {
                     min: 0
                 },
                 gridlines: {count: 25},
-                textStyle: {fontSize: 12}
+                textStyle: {fontSize: 14},
+                titleTextStyle:{fontSize: 18, bold: true}
             },
             hAxis: {
                 title: 'Dia',
                 viewWindow: {
-                    max: 31,
+                    max: 32,
                     min: 0
                 },
-                gridlines: {count: 32},
-                textStyle: {fontSize: 10}
+                gridlines: {count: 33},
+                textStyle: {fontSize: 14},
+                titleTextStyle:{fontSize: 18, bold: true }
             },
-            sizeAxis: {minValue:2, maxSize:12}
+            sizeAxis: {minValue:0, maxSize:18}
         },
         formatters: {},
         data: {}
@@ -44,8 +48,8 @@ var create_columns = function (){
     data.push(  {id:"ID", label:"", type:"string"},
                 {id:"Dia", label:"Dia", type:"number"},
                 {id:"hora", label:"hora", type:"number"},
-                {id:"ConcColor", label:"Concurrence", type:"number"},
-                {id:"ConcSize",  label:"Concurrence", type:"number"});
+                {id:"ConcColor", label:"Usuarios", type:"number"},
+                {id:"ConcSize",  label:"", type:"number"});
     return data;
 }
 

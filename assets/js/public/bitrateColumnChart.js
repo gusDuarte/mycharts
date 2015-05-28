@@ -5,8 +5,9 @@
 var bitrateColumnChart = {
     chart: {
         type: "ColumnChart",
-        cssStyle: "height:600px; widht:1500px;",
+        cssStyle: "height:600px; widht:1400px;",
         options: {
+            chartArea: {left:60,top:30,width:'100%',height:'85%'},
             legend: {position: 'top', maxLines: 3},
             isStacked: "true",
             vAxis: {
@@ -17,7 +18,13 @@ var bitrateColumnChart = {
                 }
             },
             hAxis: {
-                "title": "Dias"
+                title: "Dias",
+                titleTextStyle:{fontSize: 18, bold: true },
+                viewWindow: {
+                    max: 32,
+                    min: 0
+                },
+                gridlines: {count: 33}
             }
         },
         formatters: {},
@@ -52,13 +59,15 @@ var bt_create_rows = function (csvData){
     var row = [8];
     var csvArray = CSVToArray(csvData,',');
 
-    for (var day=0; day<29; day++){
+    data.push({c:[]}); //data 0 is empty
+
+    for (var day=1; day<csvArray.length; day++){
         data.push({c:[]});
 
         data[day].c.push({v: day.toString()});
 
         for (var c=0; c<8; c++){
-            row[c]= bt_getValue(csvArray, day, c);
+            row[c]= bt_getValue(csvArray, day-1, c);
         }
 
         for (var c=0; c<8; c++){
@@ -71,7 +80,7 @@ var bt_create_rows = function (csvData){
 }
 
 var bt_getValue = function (data, day, bitrate){
-    console.log("Day: " + day + " Bitrate: " + bitrate + " value: " +  data[day][bitrate] );
+    console.log("Day: " + day + " Bitrate: " + bitrate + " value: " + data[day][bitrate]);
     return data[day][bitrate];
 }
 

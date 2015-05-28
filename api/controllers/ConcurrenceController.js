@@ -14,8 +14,11 @@ module.exports = {
 	data: function(req, res){
 		console.log("Se pide CSV data para: " + req.param('year')+" "+req.param('month'));
 		Utils.getData('MC','concurrentes', req.param('year'), req.param('month'), function(err, results){
-			console.log("CSV:" + results);
-			return res.send(results);
+			if (!err) {
+				return res.send(results);
+			} else {
+				return res.notFound(results);
+			}
 		});	
 	}
 }
