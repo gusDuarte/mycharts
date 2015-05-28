@@ -1,0 +1,27 @@
+<div class="container" ng-app="BitrateModule" ng-controller="BitrateController" ng-cloak>
+
+    <div class="chart-title">
+        <span > <%= customer %></span>
+    </div>
+
+    <div class="jumbotron">
+        <div class="container text-center">
+            <h1>Estadísticas de Uso</h1>
+            <p>Herramienta que grafica datos obtenidos de los logs de uso de los servidores de Delivery.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <h2>Grafica de Concurrencia</h2>
+            <p>Muestra la cantidad de Usuarios consumiendo del Delivery por Hora por Día.</p>
+            <p><a class="btn btn-primary btn-lg" href="/concurrence" role="button">Ver</a></p>
+        </div>
+        <div class="col-lg-6">
+            <h2>Grafica de Bitrates</h2>
+            <p>Muestra el cosumo de los distintos bitrates por cada Día.</p>
+            <p><a class="btn btn-primary btn-lg" href="/bitrates" role="button">Ver</a></p>
+        </div>
+    </div>
+
+</div> <!-- container -->

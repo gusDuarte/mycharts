@@ -26,7 +26,7 @@ module.exports = {
         return res.view('login', {layout:'layout_login' });
       }
 
-      return res.view('bitrates', {
+      return res.view('homepage', {
         customer: req.session.company
       });
 
