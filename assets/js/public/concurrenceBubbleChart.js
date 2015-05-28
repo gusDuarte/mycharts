@@ -68,14 +68,12 @@ var create_rows = function (csvData){
             data[idx].c.push({v: getValue(csvArray, day, hour)}); //size
             idx++;
         }
-        console.log("ROW: ("+day+"): " + data[day]);
     }
     return data;
 }
 
 var getValue = function (data, day, hour){
     var result = data[hour][day];
-    console.log("Day: " + day + " Hour: " + hour + " value: " +  result );
     return result;
 }
 

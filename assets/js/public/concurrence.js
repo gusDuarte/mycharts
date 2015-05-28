@@ -44,7 +44,6 @@ angular.module('ConcurrenceModule',['googlechart']).controller('ConcurrenceContr
       getData = function(){
       	$http.get('/concurrence/data?'+'year='+ $scope.yearChoose + '&month=' + $scope.monthChoose).
       		success(function(data, status, headers, config) {
-      		    console.log("CSV: "+data);
         	    $scope.chartConcurrence.data = concurrenceBubbleChart.data_adapter(data);
                 $scope.chart_loaded = true;
       	}).

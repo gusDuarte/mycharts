@@ -45,7 +45,6 @@ angular.module('BitrateModule', ['googlechart']).controller('BitrateController',
     getData = function(){
       	$http.get('/bitrate/data?'+'year='+ $scope.yearChoose + '&month=' + $scope.monthChoose).
       		success(function(data, status, headers, config) {
-      			console.log("CSV: "+data);
         		$scope.chartBitrate.data = bitrateColumnChart.data_adapter(data);
 				$scope.chart_loaded = true;
 

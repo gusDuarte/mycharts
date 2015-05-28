@@ -38,10 +38,11 @@ var bitrateColumnChart = {
     }
 }
 
-
 var bt_create_columns = function (){
     var data = [];
-    data.push(  {id:"100k", label:"100k", type:"number"},
+    data.push(
+        {id:"", label:"", type:"string"},
+        {id:"100k", label:"100k", type:"number"},
         {id:"300k", label:"300k", type:"number"},
         {id:"600k", label:"600k", type:"number"},
         {id:"900k", label:"900k", type:"number"},
@@ -69,23 +70,22 @@ var bt_create_rows = function (csvData){
         for (var c=0; c<8; c++){
             row[c]= bt_getValue(csvArray, day-1, c);
         }
-
+        var sum_porc = 0;
         for (var c=0; c<8; c++){
             var per = percent(row, c);
             data[day].c.push({v: per});
-            console.log("day: "+ day + "bitrate: "+ c + " perc: " + per);
+            sum_porc = sum_porc + per;
         }
     }
     return data;
 }
 
 var bt_getValue = function (data, day, bitrate){
-    console.log("Day: " + day + " Bitrate: " + bitrate + " value: " + data[day][bitrate]);
     return data[day][bitrate];
 }
 
 var percent = function(row, pos){
-    return Math.ceil((row[pos]/sum(row))*100);
+    return (row[pos]/sum(row))*100;
 }
 
 var sum = function(row){
