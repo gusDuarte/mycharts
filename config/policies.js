@@ -27,7 +27,27 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
+  '*': false,
 
+  PageController:{
+    'showHomePage': true,
+    'bitrates': 'sessionAuth',
+    'concurrence': 'sessionAuth'
+  },
+
+  UserController:{
+    'login': true,
+    'signup': true,
+    'logout': true
+  },
+
+  BitrateController:{
+    '*': 'sessionAuth'
+  },
+
+  ConcurrenceController:{
+    '*': 'sessionAuth'
+  }
   /***************************************************************************
   *                                                                          *
   * Here's an example of mapping some policies to run before a controller    *
